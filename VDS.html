@@ -1,0 +1,120 @@
+
+<html>
+</html>
+<head>
+     <title>VIMANY DATA SERVICE</title>
+</head>
+<body>
+     <h1 style="color:lightblue;background-color:black;width:1800;font-size:100">.......VIMANY DATA SERVICE......</h1><p> <h2 style="color:white;background-color:black; font-size:90;width:1900">At VDS we make sure we satisfy our customers by providing the best data and networking service to them.<br>All data services provided by VDS are all <b><u>30 days validated</u></b></p><div><p>At VDS we attend to all complaints and any delay in service </p></div>
+     <img src="IMG-20240811-WA0130.jpg"    width="1800"height="1800"alt="VDS flyer">
+     <p><a href="https://wa.me/+2348061469787">contact us via Whatsapp</a></p>
+      Thank you for your patronage and if you haven't patronized us contact us now </h2>
+   <style>
+		.comments {
+   font-size:16px;
+			margin: 60px;
+			padding: 60px;
+			border: 3px solid #000000;
+			border-radius: 10px;
+			box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+		}
+		
+		#comments-list {
+			margin-top: 20px;
+		}
+		
+		.comment {
+			margin-bottom: 60px;
+			padding-bottom: 100px;
+			border-bottom: 3px solid #000000;
+		}
+		
+		.comment:last-child {
+			border-bottom: none;
+		}
+		
+		.comment h3 {
+			font-weight: bold;
+			margin-bottom: 40px;
+		}
+		
+		.comment p {
+			margin-bottom: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="comments">
+		<h2>Comments</h2>
+		<form id="comment-form">
+			<input type="text" placeholder="Name" id="name" required>
+			<textarea id="comment" placeholder="Write a comment..." required></textarea>
+			<button id="submit">Submit</button>
+		</form>
+		<div id="comments-list">
+			<!-- comments will be displayed here -->
+		</div>
+	</div>
+	
+	<script>
+		const commentForm = document.getElementById('comment-form');
+		const commentsList = document.getElementById('comments-list');
+		
+		// Get comments from local storage
+		const storedComments = localStorage.getItem('comments');
+		const comments = storedComments ? JSON.parse(storedComments) : [];
+		
+		// Display comments
+		comments.forEach((comment) => {
+			const commentHTML = `
+				<div class="comment">
+					<h3>${comment.name}</h3>
+					<p>${comment.comment}</p>
+				</div>
+			`;
+			commentsList.insertAdjacentHTML('beforeend', commentHTML);
+		});
+		
+		// Add event listener to form submission
+		commentForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const name = document.getElementById('name').value;
+			const comment = document.getElementById('comment').value;
+			
+			// Basic validation
+			if (!name || !comment) {
+				alert('Please fill in both name and comment fields');
+				return;
+			}
+			
+			// Add comment to array
+			comments.push({ name, comment });
+			
+			// Save comments to local storage
+			localStorage.setItem('comments', JSON.stringify(comments));
+			
+			// Display new comment
+			const commentHTML = `
+				<div class="comment">
+					<h3>${name}</h3>
+					<p>${comment}</p>
+				</div>
+			`;
+			commentsList.insertAdjacentHTML('beforeend', commentHTML);
+			
+			// Reset form
+			commentForm.reset();
+		});
+	</script>
+<footer>
+  <h3 style="font-size:50;width:800"><p>&copy; 2024 My Website. All rights reserved.</p>
+  <p>Contact us at <a href="mailto: falopeayomide58@gmail.com">falopeayomide58@gmail.com</a></p>
+  <ul>
+    <li><a href="https://wa.me/+2349031959186">Whatsapp</a></li></h3>
+  </ul>
+</footer>
+</body>
+</html>
+
+
+
